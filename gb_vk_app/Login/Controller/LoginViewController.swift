@@ -9,10 +9,12 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    // MARK: - Outlets
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,18 +36,11 @@ class LoginViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    // MARK: - IBAction
     @IBAction func loginButtonPressed(_ sender: Any) {
-        let login = loginTextField.text!
-        let password = passwordTextField.text!
-        
-        if login == "admin" && password == "12345" {
-            print("Успешная авторизация")
-        } else {
-            print("Ошибка")
-        }
-        
     }
     
+    // MARK: - Keyboard
     @objc func keyboardWasShown(notification: Notification) {
         let info = notification.userInfo! as NSDictionary
         let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
@@ -64,6 +59,35 @@ class LoginViewController: UIViewController {
         self.scrollView?.endEditing(true)
     }
     
+    // MARK: - Segue (login, alert)
     
-
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        let checkResult = checkUserData()
+        
+        if !checkResult {
+            showLoginError()
+        }
+        
+        return checkResult
+    }
+    
+    func checkUserData() -> Bool {
+        guard let login = loginTextField.text,
+              let password = passwordTextField.text else { return false }
+        
+        if login == "admin" && password == "12345" {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func showLoginError() {
+        let alert = UIAlertController(title: "Ошибка", message: "Введены неверные данные", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
