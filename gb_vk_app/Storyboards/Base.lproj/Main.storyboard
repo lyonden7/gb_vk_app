@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -42,7 +43,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UDF-03-OmF">
                                         <rect key="frame" x="130" y="335" width="130" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Логин" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cc0-rS-Ifo">
                                         <rect key="frame" x="128.33333333333337" y="173" width="133.66666666666663" height="24"/>
@@ -56,6 +57,7 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Войти"/>
                                         <connections>
                                             <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zbO-Nj-9CK"/>
+                                            <segue destination="aRU-DL-Ab1" kind="presentation" modalPresentationStyle="fullScreen" id="Zmz-NA-op9"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -101,12 +103,6 @@
                                     <mask key="constraints">
                                         <exclude reference="jyn-HL-dKY"/>
                                         <exclude reference="px5-8P-VPO"/>
-                                        <exclude reference="0uV-He-AN9"/>
-                                        <exclude reference="7Be-t9-djL"/>
-                                        <exclude reference="Db6-2X-zaO"/>
-                                        <exclude reference="Ef3-e9-uNn"/>
-                                        <exclude reference="V3i-ez-FbI"/>
-                                        <exclude reference="XH8-Ei-i6w"/>
                                         <exclude reference="Qlg-5A-IBP"/>
                                         <exclude reference="cRe-BW-80O"/>
                                         <exclude reference="cwn-oI-rrm"/>
@@ -118,6 +114,12 @@
                                         <exclude reference="iwn-gA-GnR"/>
                                         <exclude reference="lPF-Gb-Zqg"/>
                                         <exclude reference="qMo-nJ-51o"/>
+                                        <exclude reference="0uV-He-AN9"/>
+                                        <exclude reference="7Be-t9-djL"/>
+                                        <exclude reference="Db6-2X-zaO"/>
+                                        <exclude reference="Ef3-e9-uNn"/>
+                                        <exclude reference="V3i-ez-FbI"/>
+                                        <exclude reference="XH8-Ei-i6w"/>
                                         <exclude reference="20Y-Qb-zEP"/>
                                         <exclude reference="NmE-tG-LSw"/>
                                         <exclude reference="QQs-9S-qfY"/>
@@ -138,14 +140,14 @@
                                 <variation key="heightClass=compact-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="jyn-HL-dKY"/>
-                                        <include reference="0uV-He-AN9"/>
-                                        <include reference="Ef3-e9-uNn"/>
-                                        <include reference="XH8-Ei-i6w"/>
                                         <include reference="Qlg-5A-IBP"/>
                                         <include reference="ghC-eQ-yX8"/>
                                         <include reference="xIm-RW-ghc"/>
                                         <include reference="UHC-V8-59i"/>
                                         <include reference="qMo-nJ-51o"/>
+                                        <include reference="0uV-He-AN9"/>
+                                        <include reference="Ef3-e9-uNn"/>
+                                        <include reference="XH8-Ei-i6w"/>
                                         <include reference="NmE-tG-LSw"/>
                                         <include reference="ZB3-vA-Rc2"/>
                                         <include reference="00p-Ok-bZl"/>
@@ -158,14 +160,14 @@
                                 <variation key="heightClass=compact-widthClass=regular">
                                     <mask key="constraints">
                                         <include reference="jyn-HL-dKY"/>
-                                        <include reference="0uV-He-AN9"/>
-                                        <include reference="Ef3-e9-uNn"/>
-                                        <include reference="XH8-Ei-i6w"/>
                                         <include reference="Qlg-5A-IBP"/>
                                         <include reference="ghC-eQ-yX8"/>
                                         <include reference="xIm-RW-ghc"/>
                                         <include reference="UHC-V8-59i"/>
                                         <include reference="qMo-nJ-51o"/>
+                                        <include reference="0uV-He-AN9"/>
+                                        <include reference="Ef3-e9-uNn"/>
+                                        <include reference="XH8-Ei-i6w"/>
                                         <include reference="NmE-tG-LSw"/>
                                         <include reference="ZB3-vA-Rc2"/>
                                         <include reference="00p-Ok-bZl"/>
@@ -178,15 +180,15 @@
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="px5-8P-VPO"/>
-                                        <include reference="7Be-t9-djL"/>
-                                        <include reference="Db6-2X-zaO"/>
-                                        <include reference="V3i-ez-FbI"/>
                                         <include reference="cRe-BW-80O"/>
                                         <include reference="cwn-oI-rrm"/>
                                         <include reference="iZJ-4R-eS2"/>
                                         <include reference="ifW-aT-ngD"/>
                                         <include reference="iwn-gA-GnR"/>
                                         <include reference="lPF-Gb-Zqg"/>
+                                        <include reference="7Be-t9-djL"/>
+                                        <include reference="Db6-2X-zaO"/>
+                                        <include reference="V3i-ez-FbI"/>
                                         <include reference="20Y-Qb-zEP"/>
                                         <include reference="QQs-9S-qfY"/>
                                         <include reference="czR-0S-D60"/>
@@ -200,15 +202,15 @@
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <mask key="constraints">
                                         <include reference="px5-8P-VPO"/>
-                                        <include reference="7Be-t9-djL"/>
-                                        <include reference="Db6-2X-zaO"/>
-                                        <include reference="V3i-ez-FbI"/>
                                         <include reference="cRe-BW-80O"/>
                                         <include reference="cwn-oI-rrm"/>
                                         <include reference="iZJ-4R-eS2"/>
                                         <include reference="ifW-aT-ngD"/>
                                         <include reference="iwn-gA-GnR"/>
                                         <include reference="lPF-Gb-Zqg"/>
+                                        <include reference="7Be-t9-djL"/>
+                                        <include reference="Db6-2X-zaO"/>
+                                        <include reference="V3i-ez-FbI"/>
                                         <include reference="20Y-Qb-zEP"/>
                                         <include reference="QQs-9S-qfY"/>
                                         <include reference="czR-0S-D60"/>
@@ -243,6 +245,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="gib-3c-wB0"/>
+                                <exclude reference="vDe-mb-bQC"/>
                                 <exclude reference="2F4-7T-LiE"/>
                                 <exclude reference="2pz-P7-8fZ"/>
                                 <exclude reference="8Tb-Fm-UQK"/>
@@ -251,8 +255,6 @@
                                 <exclude reference="exP-vb-y1m"/>
                                 <exclude reference="gWG-6Y-p3R"/>
                                 <exclude reference="iRk-d2-7GF"/>
-                                <exclude reference="gib-3c-wB0"/>
-                                <exclude reference="vDe-mb-bQC"/>
                                 <exclude reference="6ot-PM-Z8E"/>
                                 <exclude reference="KAC-2S-eau"/>
                                 <exclude reference="fBG-by-yik"/>
@@ -263,24 +265,24 @@
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
                             <mask key="constraints">
+                                <include reference="gib-3c-wB0"/>
+                                <include reference="vDe-mb-bQC"/>
                                 <include reference="2F4-7T-LiE"/>
                                 <include reference="MMK-ey-xiY"/>
                                 <include reference="exP-vb-y1m"/>
                                 <include reference="gWG-6Y-p3R"/>
-                                <include reference="gib-3c-wB0"/>
-                                <include reference="vDe-mb-bQC"/>
                                 <include reference="KAC-2S-eau"/>
                                 <include reference="nmD-Mx-MTr"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
                             <mask key="constraints">
+                                <include reference="gib-3c-wB0"/>
+                                <include reference="vDe-mb-bQC"/>
                                 <include reference="2F4-7T-LiE"/>
                                 <include reference="MMK-ey-xiY"/>
                                 <include reference="exP-vb-y1m"/>
                                 <include reference="gWG-6Y-p3R"/>
-                                <include reference="gib-3c-wB0"/>
-                                <include reference="vDe-mb-bQC"/>
                                 <include reference="KAC-2S-eau"/>
                                 <include reference="nmD-Mx-MTr"/>
                             </mask>
@@ -320,9 +322,199 @@
             </objects>
             <point key="canvasLocation" x="120.85308056872037" y="123.07692307692307"/>
         </scene>
+        <!--Friends-->
+        <scene sceneID="Adw-eh-1zA">
+            <objects>
+                <tableViewController id="sSB-Ye-j65" customClass="FriendsController" customModule="gb_vk_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="KiI-e8-6QN">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.27450980390000002" green="0.85490196080000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="zJI-TC-fnR">
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zJI-TC-fnR" id="u1f-st-ldA">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="ffA-JT-L7Q" kind="show" id="IGt-4X-Dfv"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sSB-Ye-j65" id="ehi-a5-l5F"/>
+                            <outlet property="delegate" destination="sSB-Ye-j65" id="bra-rM-vRa"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Friends" id="Py7-TG-LE9"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RzF-9g-zgQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2777" y="-294"/>
+        </scene>
+        <!--Groups-->
+        <scene sceneID="ZWl-0c-IUk">
+            <objects>
+                <tableViewController id="9xb-Wm-RSk" customClass="GroupsController" customModule="gb_vk_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="wvH-O0-ZTA">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.85490196080000003" green="0.76862745099999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="pIa-fd-bnZ">
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pIa-fd-bnZ" id="kI8-ge-Aom">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9xb-Wm-RSk" id="Sr0-Py-2aR"/>
+                            <outlet property="delegate" destination="9xb-Wm-RSk" id="q1o-ed-t1x"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Groups" id="Ocw-OM-kC6">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5O9-fb-fVe">
+                            <connections>
+                                <segue destination="Ixl-gT-XUr" kind="show" id="PMY-dy-vUe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pMc-Op-Kob" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2777" y="591"/>
+        </scene>
+        <!--Photo-->
+        <scene sceneID="cvr-uY-HlS">
+            <objects>
+                <collectionViewController id="ffA-JT-L7Q" customClass="FriendsPhotoController" customModule="gb_vk_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="EAb-ZN-0CL">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.42642527819999998" green="0.78614853289999997" blue="0.96620899439999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="g3Z-ht-stP">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rls-H5-bev">
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Pia-Z7-FPe">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionViewCellContentView>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="ffA-JT-L7Q" id="SHO-2B-equ"/>
+                            <outlet property="delegate" destination="ffA-JT-L7Q" id="WuT-lh-iVj"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Photo" id="vAU-kB-4jr"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nUW-vS-tm8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3648" y="-294"/>
+        </scene>
+        <!--Add groups-->
+        <scene sceneID="OK2-fg-H3w">
+            <objects>
+                <tableViewController id="Ixl-gT-XUr" customClass="NewGroupsController" customModule="gb_vk_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="kp6-rw-Af7">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.57280820610000005" green="0.87864321469999995" blue="0.66662573810000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="BBZ-gn-d7Y">
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BBZ-gn-d7Y" id="nAl-fB-kpx">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Ixl-gT-XUr" id="X7M-f2-hIE"/>
+                            <outlet property="delegate" destination="Ixl-gT-XUr" id="xnM-nQ-zrt"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add groups" id="7ey-AW-AgS"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mkz-nX-FJF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3648" y="591"/>
+        </scene>
+        <!--Friends-->
+        <scene sceneID="VJ5-ZJ-iE4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zJL-nV-DbR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Friends" image="person" catalog="system" id="nPb-38-dZW"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rKf-PO-Kc3">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sSB-Ye-j65" kind="relationship" relationship="rootViewController" id="FpU-gT-C1L"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8fj-Pw-e8C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1920" y="-294"/>
+        </scene>
+        <!--Groups-->
+        <scene sceneID="IBn-KR-H2A">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="z1s-n4-Lfk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Groups" image="person.3" catalog="system" id="FvI-dd-Os4"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kUn-VW-24N">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9xb-Wm-RSk" kind="relationship" relationship="rootViewController" id="bTd-Kg-YFH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qKI-4E-rpU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1920" y="591"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="nxI-uM-cDF">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="aRU-DL-Ab1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="9Yq-N2-j1K"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jT3-dG-KCV">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="zJL-nV-DbR" kind="relationship" relationship="viewControllers" id="CQY-Oh-d9Y"/>
+                        <segue destination="z1s-n4-Lfk" kind="relationship" relationship="viewControllers" id="BJq-hN-tD5"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h6t-lQ-76t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="123"/>
+        </scene>
     </scenes>
     <resources>
         <image name="background" width="2412" height="4288"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.3" catalog="system" width="128" height="62"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
