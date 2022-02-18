@@ -8,40 +8,61 @@
 import UIKit
 
 class GroupsController: UITableViewController {
+    
+    fileprivate var groups = [
+        Group(name: "Российская Премьер-Лига", avatar: UIImage(named: "rpl")),
+        Group(name: "Лига Европы", avatar: UIImage(named: "uel"))
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    @IBAction func addGroup(segue: UIStoryboardSegue) {
+        if segue.identifier == "addGroup" {
+            guard let newGroupsVC = segue.source as? NewGroupsController,
+                  let indexPath = newGroupsVC.tableView.indexPathForSelectedRow else { return }
+            
+            let newGroup = newGroupsVC.groups[indexPath.row]
+            
+            guard !groups.contains(where: { group -> Bool in
+                group.name == newGroup.name
+            }) else { return }
+            
+            groups.append(newGroup)
+            tableView.reloadData()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return groups.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as! GroupCell
+        let group = groups[indexPath.row]
+        
+        cell.groupNameLabel.text = group.name
+        if group.avatar == nil {
+            cell.groupAvatarView.image = UIImage(named: "horse")
+        } else {
+            cell.groupAvatarView.image = group.avatar
+        }
+        
         return cell
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            groups.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
-    */
 
 }

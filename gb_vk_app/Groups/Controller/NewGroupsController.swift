@@ -8,31 +8,38 @@
 import UIKit
 
 class NewGroupsController: UITableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
+    
+    let groups = [
+        Group(name: "Российская Премьер-Лига", avatar: UIImage(named: "rpl")),
+        Group(name: "Лига Европы", avatar: UIImage(named: "uel")),
+        Group(name: "FIFA", avatar: UIImage(named: "fifa")),
+        Group(name: "UEFA", avatar: UIImage(named: "uefa")),
+        Group(name: "Лига Чемпионов", avatar: UIImage(named: "ucl")),
+        Group(name: "Adidas", avatar: UIImage(named: "adidas")),
+        Group(name: "Joma", avatar: UIImage(named: "joma")),
+        Group(name: "Select", avatar: UIImage(named: "select")),
+        Group(name: "Umbro", avatar: UIImage(named: "umbro"))
+    ]
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return groups.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as! GroupCell
+        let group = groups[indexPath.row]
+        
+        cell.groupNameLabel.text = group.name
+        if group.avatar == nil {
+            cell.groupAvatarView.image = UIImage(named: "horse")
+        } else {
+            cell.groupAvatarView.image = group.avatar
+        }
 
         return cell
     }
-    */
 
     /*
     // MARK: - Navigation
