@@ -17,6 +17,11 @@
 		2827F23827AB4726004D48AC /* GroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827F23727AB4726004D48AC /* GroupsController.swift */; };
 		2827F23A27AB474C004D48AC /* NewGroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827F23927AB474C004D48AC /* NewGroupsController.swift */; };
 		2827F23C27AB4764004D48AC /* FriendsPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827F23B27AB4764004D48AC /* FriendsPhotoController.swift */; };
+		2827F24327AC7DF0004D48AC /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827F24227AC7DF0004D48AC /* FriendCell.swift */; };
+		2827F24627AC7E5F004D48AC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827F24527AC7E5F004D48AC /* User.swift */; };
+		2827F24927AC7E83004D48AC /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827F24827AC7E83004D48AC /* GroupCell.swift */; };
+		2827F24E27AC7EC6004D48AC /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827F24D27AC7EC6004D48AC /* Group.swift */; };
+		2855891A27AC8217004FF8D0 /* FriendPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2855891927AC8217004FF8D0 /* FriendPhotoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,11 @@
 		2827F23727AB4726004D48AC /* GroupsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsController.swift; sourceTree = "<group>"; };
 		2827F23927AB474C004D48AC /* NewGroupsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupsController.swift; sourceTree = "<group>"; };
 		2827F23B27AB4764004D48AC /* FriendsPhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPhotoController.swift; sourceTree = "<group>"; };
+		2827F24227AC7DF0004D48AC /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		2827F24527AC7E5F004D48AC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2827F24827AC7E83004D48AC /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		2827F24D27AC7EC6004D48AC /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		2855891927AC8217004FF8D0 /* FriendPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPhotoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +114,8 @@
 		2827F23D27AB476E004D48AC /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				2827F24427AC7E44004D48AC /* Model */,
+				2827F24127AC7DD1004D48AC /* View */,
 				2827F23E27AB4778004D48AC /* Controllers */,
 			);
 			path = Friends;
@@ -121,6 +133,8 @@
 		2827F23F27AB4787004D48AC /* Groups */ = {
 			isa = PBXGroup;
 			children = (
+				2827F24C27AC7EBA004D48AC /* Model */,
+				2827F24727AC7E72004D48AC /* View */,
 				2827F24027AB4791004D48AC /* Controller */,
 			);
 			path = Groups;
@@ -133,6 +147,39 @@
 				2827F23927AB474C004D48AC /* NewGroupsController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		2827F24127AC7DD1004D48AC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2827F24227AC7DF0004D48AC /* FriendCell.swift */,
+				2855891927AC8217004FF8D0 /* FriendPhotoCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2827F24427AC7E44004D48AC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2827F24527AC7E5F004D48AC /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2827F24727AC7E72004D48AC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2827F24827AC7E83004D48AC /* GroupCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2827F24C27AC7EBA004D48AC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2827F24D27AC7EC6004D48AC /* Group.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,7 +256,12 @@
 				2827F23827AB4726004D48AC /* GroupsController.swift in Sources */,
 				2827F23C27AB4764004D48AC /* FriendsPhotoController.swift in Sources */,
 				2827F23A27AB474C004D48AC /* NewGroupsController.swift in Sources */,
+				2827F24E27AC7EC6004D48AC /* Group.swift in Sources */,
+				2827F24327AC7DF0004D48AC /* FriendCell.swift in Sources */,
 				2827F22E27A74EAE004D48AC /* LoginViewController.swift in Sources */,
+				2827F24927AC7E83004D48AC /* GroupCell.swift in Sources */,
+				2855891A27AC8217004FF8D0 /* FriendPhotoCell.swift in Sources */,
+				2827F24627AC7E5F004D48AC /* User.swift in Sources */,
 				2827F23427AB4706004D48AC /* FriendsController.swift in Sources */,
 				2827F21A27A7490B004D48AC /* AppDelegate.swift in Sources */,
 				2827F21C27A7490B004D48AC /* SceneDelegate.swift in Sources */,
