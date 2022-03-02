@@ -32,9 +32,9 @@ class FriendsController: UITableViewController {
 
         cell.userNameLabel.text = "\(friend.firstName) \(friend.lastName)"
         if friend.avatar == nil {
-            cell.userAvatarView.image = UIImage(named: "horse")
+            cell.avatarView.imageAvatarView.image = UIImage(named: "horse")
         } else {
-            cell.userAvatarView.image = friend.avatar
+            cell.avatarView.imageAvatarView.image = friend.avatar
         }
 
         return cell
@@ -47,8 +47,10 @@ class FriendsController: UITableViewController {
         if segue.identifier == "friendsPhotoSegue",
            let indexPath = tableView.indexPathForSelectedRow,
            let photoVC = segue.destination as? FriendsPhotoController {
-            let photos = friends[indexPath.row].photos
+            let friend = friends[indexPath.row]
+            let photos = friend.photos
             photoVC.photos = photos
+            photoVC.friend = friend
         }
     }
     
