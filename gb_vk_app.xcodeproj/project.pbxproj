@@ -22,6 +22,8 @@
 		2827F24927AC7E83004D48AC /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827F24827AC7E83004D48AC /* GroupCell.swift */; };
 		2827F24E27AC7EC6004D48AC /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2827F24D27AC7EC6004D48AC /* Group.swift */; };
 		2855891A27AC8217004FF8D0 /* FriendPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2855891927AC8217004FF8D0 /* FriendPhotoCell.swift */; };
+		2855891C27C28602004FF8D0 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2855891B27C28602004FF8D0 /* AvatarView.swift */; };
+		28570B8A27CD4852000526CB /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28570B8927CD4852000526CB /* LikeControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		2827F24827AC7E83004D48AC /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		2827F24D27AC7EC6004D48AC /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		2855891927AC8217004FF8D0 /* FriendPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPhotoCell.swift; sourceTree = "<group>"; };
+		2855891B27C28602004FF8D0 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		28570B8927CD4852000526CB /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +158,8 @@
 			children = (
 				2827F24227AC7DF0004D48AC /* FriendCell.swift */,
 				2855891927AC8217004FF8D0 /* FriendPhotoCell.swift */,
+				2855891B27C28602004FF8D0 /* AvatarView.swift */,
+				28570B8927CD4852000526CB /* LikeControl.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -255,8 +261,10 @@
 			files = (
 				2827F23827AB4726004D48AC /* GroupsController.swift in Sources */,
 				2827F23C27AB4764004D48AC /* FriendsPhotoController.swift in Sources */,
+				28570B8A27CD4852000526CB /* LikeControl.swift in Sources */,
 				2827F23A27AB474C004D48AC /* NewGroupsController.swift in Sources */,
 				2827F24E27AC7EC6004D48AC /* Group.swift in Sources */,
+				2855891C27C28602004FF8D0 /* AvatarView.swift in Sources */,
 				2827F24327AC7DF0004D48AC /* FriendCell.swift in Sources */,
 				2827F22E27A74EAE004D48AC /* LoginViewController.swift in Sources */,
 				2827F24927AC7E83004D48AC /* GroupCell.swift in Sources */,
