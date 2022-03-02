@@ -8,7 +8,13 @@
 import UIKit
 
 class FriendPhotoCell: UICollectionViewCell {
+
+    @IBOutlet var photoView: UIImageView!
+    @IBOutlet var likeControl: LikeControl!
+
+    // MARK: - Public
     
-    @IBOutlet weak var photoView: UIImageView!
-    
+    public func configureLikeControl(likes count: Int, isLikedByUser: Bool) {
+        likeControl.configure(likes: count, isLikedByUser: isLikedByUser)
+    }
 }
