@@ -20,9 +20,8 @@ class NewsfeedCell: UITableViewCell {
     @IBOutlet weak var commentsLabel: UILabel!
     @IBOutlet weak var sharesLabel: UILabel!
     @IBOutlet weak var viewsLabel: UILabel!
-    
-    
 
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
