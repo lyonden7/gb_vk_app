@@ -22,14 +22,14 @@ class LikeControl: UIControl {
                 likeCountLabel.textColor = .red
                 setupGestureRecognizer()
                 count += 1
-                likeCountLabel.text = String(count)
+                animationFlipFromLeft(likeCountLabel, String(count))
             } else {
                 likeImageView.image = UIImage(systemName: "heart")
                 likeImageView.tintColor = .black
                 likeCountLabel.textColor = .black
                 setupGestureRecognizer()
                 count -= 1
-                likeCountLabel.text = String(count)
+                animationCurlDown(likeCountLabel, String(count))
             }
         }
     }
@@ -54,5 +54,23 @@ class LikeControl: UIControl {
     public func configure(likes count: Int, isLikedByUser: Bool) {
         self.count = count
         self.isLiked = isLikedByUser
+    }
+    
+    // MARK: - Animate
+    
+    func animationFlipFromLeft(_ label: UILabel, _ text: String) {
+        UIView.transition(with: label,
+                          duration: 0.5,
+                          options: .transitionFlipFromLeft,
+                          animations: { label.text = text },
+                          completion: nil)
+    }
+    
+    func animationCurlDown(_ label: UILabel, _ text: String) {
+        UIView.transition(with: label,
+                          duration: 0.5,
+                          options: .transitionCurlDown,
+                          animations: { label.text = text },
+                          completion: nil)
     }
 }
