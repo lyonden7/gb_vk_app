@@ -60,3 +60,15 @@ extension FriendsPhotoController: UICollectionViewDelegateFlowLayout {
     }
     
 }
+
+extension FriendsPhotoController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Show Big Photo",
+           let selectedPhotoIndexPath = collectionView.indexPathsForSelectedItems?.first,
+           let bigPhotoVC = segue.destination as? PhotoViewController {
+            bigPhotoVC.photos = photos
+            bigPhotoVC.selectedPhotoIndex = selectedPhotoIndexPath.item
+            collectionView.deselectItem(at: selectedPhotoIndexPath, animated: true)
+        }
+    }
+}

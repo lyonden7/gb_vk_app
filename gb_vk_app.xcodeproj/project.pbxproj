@@ -28,6 +28,7 @@
 		28570B9327E21DDF000526CB /* NewsfeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28570B9127E21DDF000526CB /* NewsfeedCell.swift */; };
 		28570B9427E21DDF000526CB /* NewsfeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28570B9227E21DDF000526CB /* NewsfeedCell.xib */; };
 		28570B9A27E68608000526CB /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28570B9927E68608000526CB /* LoadingIndicator.swift */; };
+		28570B9C27EB688F000526CB /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28570B9B27EB688F000526CB /* PhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		28570B9127E21DDF000526CB /* NewsfeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedCell.swift; sourceTree = "<group>"; };
 		28570B9227E21DDF000526CB /* NewsfeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsfeedCell.xib; sourceTree = "<group>"; };
 		28570B9927E68608000526CB /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		28570B9B27EB688F000526CB /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			children = (
 				2827F23327AB4706004D48AC /* FriendsController.swift */,
 				2827F23B27AB4764004D48AC /* FriendsPhotoController.swift */,
+				28570B9B27EB688F000526CB /* PhotoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				28570B8A27CD4852000526CB /* LikeControl.swift in Sources */,
 				28570B9027E21C2A000526CB /* NewsfeedController.swift in Sources */,
 				2827F23A27AB474C004D48AC /* NewGroupsController.swift in Sources */,
+				28570B9C27EB688F000526CB /* PhotoViewController.swift in Sources */,
 				28570B9A27E68608000526CB /* LoadingIndicator.swift in Sources */,
 				2827F24E27AC7EC6004D48AC /* Group.swift in Sources */,
 				2855891C27C28602004FF8D0 /* AvatarView.swift in Sources */,
