@@ -37,6 +37,8 @@ class LoginViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -48,6 +50,21 @@ class LoginViewController: UIViewController {
     
     // MARK: - IBAction
     @IBAction func loginButtonPressed(_ sender: Any) {
+        guard let login = loginTextField.text,
+              let password = passwordTextField.text,
+              login == "",
+              password == "" else {
+                  show(message: "Введены неверные данные")
+                  return
+              }
+        
+//        let friendsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FriendsController")
+//        friendsVC.transitioningDelegate = self
+//        self.navigationController?.pushViewController(friendsVC, animated: true)
+        
+        let tabbarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarController")
+        tabbarVC.transitioningDelegate = self
+        self.navigationController?.pushViewController(tabbarVC, animated: true)
     }
     
     // MARK: - Keyboard
@@ -71,34 +88,26 @@ class LoginViewController: UIViewController {
     
     // MARK: - Segue (login, alert)
     
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        let checkResult = checkUserData()
-        
-        if !checkResult {
-            showLoginError()
-        }
-        
-        return checkResult
-    }
+//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+//        let checkResult = checkUserData()
+//
+//        if !checkResult {
+//            show(message: "Введены неверные данные")
+//        }
+//
+//        return checkResult
+//    }
     
-    func checkUserData() -> Bool {
-        guard let login = loginTextField.text,
-              let password = passwordTextField.text else { return false }
-        
-        if login == "" && password == "" {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    func showLoginError() {
-        let alert = UIAlertController(title: "Ошибка", message: "Введены неверные данные", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
-        
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
-    }
+//    func checkUserData() -> Bool {
+//        guard let login = loginTextField.text,
+//              let password = passwordTextField.text else { return false }
+//
+//        if login == "" && password == "" {
+//            return true
+//        } else {
+//            return false
+//        }
+//    }
     
     // MARK: - Animation
     
@@ -215,4 +224,10 @@ class LoginViewController: UIViewController {
         }
     }
     
+}
+
+extension LoginViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        PushAnimator()
+    }
 }
