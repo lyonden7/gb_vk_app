@@ -58,10 +58,6 @@ class LoginViewController: UIViewController {
                   return
               }
         
-//        let friendsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FriendsController")
-//        friendsVC.transitioningDelegate = self
-//        self.navigationController?.pushViewController(friendsVC, animated: true)
-        
         let tabbarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarController")
         tabbarVC.transitioningDelegate = self
         self.navigationController?.pushViewController(tabbarVC, animated: true)
@@ -86,29 +82,6 @@ class LoginViewController: UIViewController {
         self.scrollView?.endEditing(true)
     }
     
-    // MARK: - Segue (login, alert)
-    
-//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-//        let checkResult = checkUserData()
-//
-//        if !checkResult {
-//            show(message: "Введены неверные данные")
-//        }
-//
-//        return checkResult
-//    }
-    
-//    func checkUserData() -> Bool {
-//        guard let login = loginTextField.text,
-//              let password = passwordTextField.text else { return false }
-//
-//        if login == "" && password == "" {
-//            return true
-//        } else {
-//            return false
-//        }
-//    }
-    
     // MARK: - Animation
     
     func allAnimations() {
@@ -119,7 +92,6 @@ class LoginViewController: UIViewController {
     }
     
     func loadingAnimation() {
-        
         UIView.animate(withDuration: 0.7,
                        delay: 0,
                        options: [.autoreverse, .repeat],
@@ -137,7 +109,6 @@ class LoginViewController: UIViewController {
                        options: [.autoreverse, .repeat],
                        animations: { self.loadingIndicator.rightLoadingItemView?.alpha = 0 },
                        completion: nil)
-        
     }
     
     func animateLoginPasswordLabelsAppearing() {
@@ -223,11 +194,14 @@ class LoginViewController: UIViewController {
             return
         }
     }
-    
 }
 
 extension LoginViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         PushAnimator()
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        PopAnimator()
     }
 }
