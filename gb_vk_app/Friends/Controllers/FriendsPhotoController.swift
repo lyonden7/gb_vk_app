@@ -26,7 +26,7 @@ class FriendsPhotoController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendPhotoCell", for: indexPath) as! FriendPhotoCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FriendPhotoCell.reuseId, for: indexPath) as! FriendPhotoCell
     
         cell.photoView.image = photos[indexPath.item]
         

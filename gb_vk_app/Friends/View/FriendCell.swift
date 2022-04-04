@@ -9,6 +9,8 @@ import UIKit
 
 class FriendCell: UITableViewCell {
     
+    static let reuseId = "FriendCell"
+    
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var avatarView: AvatarView!
 

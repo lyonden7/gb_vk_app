@@ -8,6 +8,8 @@
 import UIKit
 
 class FriendPhotoCell: UICollectionViewCell {
+    
+    static let reuseId = "FriendPhotoCell"
 
     @IBOutlet var photoView: UIImageView!
     @IBOutlet var likeControl: LikeControl!

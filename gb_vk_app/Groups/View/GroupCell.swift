@@ -9,6 +9,8 @@ import UIKit
 
 class GroupCell: UITableViewCell {
     
+    static let reuseId = "GroupCell"
+    
     @IBOutlet weak var groupAvatarView: UIImageView! {
         didSet {
             self.groupAvatarView.layer.borderColor = UIColor.black.cgColor
