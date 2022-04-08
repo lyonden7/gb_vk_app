@@ -34,6 +34,7 @@
 		28570BA527F5EE9A000526CB /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28570BA427F5EE9A000526CB /* PopAnimator.swift */; };
 		28570BA827F76F0C000526CB /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28570BA727F76F0C000526CB /* UIViewControllerExtension.swift */; };
 		28570BAA27F7ADF4000526CB /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28570BA927F7ADF4000526CB /* TabBarController.swift */; };
+		28570BAD2800B17E000526CB /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28570BAC2800B17E000526CB /* Session.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		28570BA427F5EE9A000526CB /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
 		28570BA727F76F0C000526CB /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		28570BA927F7ADF4000526CB /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		28570BAC2800B17E000526CB /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,12 +100,13 @@
 		2827F21827A7490B004D48AC /* gb_vk_app */ = {
 			isa = PBXGroup;
 			children = (
-				28570BA627F76EB8000526CB /* Helpers */,
 				2827F23127AB4674004D48AC /* Storyboards */,
 				2827F22F27AB465A004D48AC /* Login */,
 				2827F23D27AB476E004D48AC /* Friends */,
 				2827F23F27AB4787004D48AC /* Groups */,
 				28570B8B27E21BBF000526CB /* Newsfeed */,
+				28570BAB2800B157000526CB /* Resource */,
+				28570BA627F76EB8000526CB /* Helpers */,
 				28570B9D27F5EDEB000526CB /* UIHelpers */,
 				2827F21927A7490B004D48AC /* AppDelegate.swift */,
 				2827F21B27A7490B004D48AC /* SceneDelegate.swift */,
@@ -274,6 +277,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		28570BAB2800B157000526CB /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				28570BAC2800B17E000526CB /* Session.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -366,6 +377,7 @@
 				2827F23427AB4706004D48AC /* FriendsController.swift in Sources */,
 				2827F21A27A7490B004D48AC /* AppDelegate.swift in Sources */,
 				28570B9327E21DDF000526CB /* NewsfeedCell.swift in Sources */,
+				28570BAD2800B17E000526CB /* Session.swift in Sources */,
 				28570BA127F5EE58000526CB /* CustomNavigationController.swift in Sources */,
 				28570BA827F76F0C000526CB /* UIViewControllerExtension.swift in Sources */,
 				2827F21C27A7490B004D48AC /* SceneDelegate.swift in Sources */,
