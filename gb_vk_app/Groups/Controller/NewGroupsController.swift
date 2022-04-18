@@ -9,6 +9,9 @@ import UIKit
 
 class NewGroupsController: UITableViewController {
     
+    let networkService = NetworkService()
+    let token = Session.instance.accessToken
+    
     let groups = [
         Group(name: "Российская Премьер-Лига", avatar: UIImage(named: "rpl")),
         Group(name: "Лига Европы", avatar: UIImage(named: "uel")),
@@ -20,6 +23,12 @@ class NewGroupsController: UITableViewController {
         Group(name: "Select", avatar: UIImage(named: "select")),
         Group(name: "Umbro", avatar: UIImage(named: "umbro"))
     ]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        networkService.loadSearchGroups(token: token)
+    }
 
     // MARK: - Table view data source
 

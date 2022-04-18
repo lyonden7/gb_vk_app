@@ -10,6 +10,8 @@ import UIKit
 class FriendsController: UITableViewController {
     
     let friends = User.getFriends()
+    let networkService = NetworkService()
+    let token = Session.instance.accessToken
     
     // MARK: - Sort
     
@@ -40,6 +42,8 @@ class FriendsController: UITableViewController {
         super.viewDidLoad()
         
         (firstCharacters, sortedFriends) = sort(friends)
+        
+        networkService.loadFriends(token: token)
     }
 
     // MARK: - Table view data source
@@ -79,7 +83,6 @@ class FriendsController: UITableViewController {
         let character = firstCharacters[section]
         return String(character)
     }
-
     
     // MARK: - Navigation
 
