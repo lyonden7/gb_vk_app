@@ -6,6 +6,7 @@ target 'gb_vk_app' do
   use_frameworks!
 
   pod 'Alamofire'
+  pod 'Kingfisher', '~> 7.0'
 
   # Pods for gb_vk_app
 
