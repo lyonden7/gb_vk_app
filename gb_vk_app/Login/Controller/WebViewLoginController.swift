@@ -8,6 +8,7 @@
 import UIKit
 import WebKit
 
+/// Форма входа для авторизации в VK
 class WebViewLoginController: UIViewController {
     
     @IBOutlet weak var webView: WKWebView! {

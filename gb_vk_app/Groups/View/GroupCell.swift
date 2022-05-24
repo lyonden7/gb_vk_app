@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class GroupCell: UITableViewCell {
     
@@ -18,11 +19,23 @@ class GroupCell: UITableViewCell {
         }
     }
     @IBOutlet weak var groupNameLabel: UILabel!
+    
+    // MARK: - Lifecycle
 
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
         
         groupAvatarView.clipsToBounds = true
         groupAvatarView.layer.cornerRadius = groupAvatarView.frame.width / 2
+    }
+    
+    // MARK: - Config cell
+    
+    /// Конфигурирование ячейки группы
+    func configureGroupCell(with group: Group) {
+        groupNameLabel.text = group.name
+        
+        let groupAvatarUrl = URL(string: group.groupsAvatarUrlString)
+        groupAvatarView.kf.setImage(with: groupAvatarUrl)
     }
 }

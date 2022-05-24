@@ -7,7 +7,20 @@
 
 import UIKit
 
-struct Group {
+class GroupResponse: Decodable {
+    let response: GroupObject
+}
+
+class GroupObject: Decodable {
+    let items: [Group]
+}
+
+class Group: Decodable {
     let name: String
-    let avatar: UIImage?
+    let groupsAvatarUrlString: String
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case groupsAvatarUrlString = "photo_50"
+    }
 }

@@ -7,14 +7,19 @@
 
 import UIKit
 
+/// Класс для создания аватара друзей - содержит фото друга и view с тенью
 class AvatarView: UIView {
 
+    // MARK: - Outlets
+    
     @IBOutlet weak var imageAvatarView: UIImageView!
     @IBOutlet weak var shadowView: UIView!
 
     @IBInspectable var shadowColor: UIColor = .black { didSet { setNeedsDisplay() } }
     @IBInspectable var shadowRadius: CGFloat = 8 { didSet { setNeedsDisplay() } }
     @IBInspectable var shadowOpacity: Float = 1 { didSet { setNeedsDisplay() } }
+    
+    // MARK: - Lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()

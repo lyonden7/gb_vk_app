@@ -7,13 +7,16 @@
 
 import UIKit
 
+/// Контроллер для отображения фотографий выбранного друга
 class FriendsPhotoController: UICollectionViewController {
 
-    let networkService = NetworkService()
-    let token = Session.instance.accessToken
+    let networkService = NetworkService(token: Session.instance.accessToken)
     
-    var photos = [UIImage]()
-    var friend: User!
+    var photos = [Photo]()
+    var friend: Friend!
+    var ownerId = Int()
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +24,10 @@ class FriendsPhotoController: UICollectionViewController {
         assert(friend != nil)
         title = "\(friend.firstName) \(friend.lastName)"
         
-        networkService.loadFriendPhoto(token: token)
+        networkService.loadFriendPhoto(ownerId: ownerId) { [weak self] photo in
+            self?.photos = photo
+            self?.collectionView.reloadData()
+        }
     }
 
     // MARK: UICollectionViewDataSource
@@ -33,7 +39,7 @@ class FriendsPhotoController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FriendPhotoCell.reuseId, for: indexPath) as! FriendPhotoCell
     
-        cell.photoView.image = photos[indexPath.item]
+        cell.configureFriendPhotoCell(with: photos[indexPath.item])
         
         let likeCount = Int.random(in: 5...500)
         let isLiked = Bool.random()
