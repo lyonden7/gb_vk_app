@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class PhotoResponse: Decodable {
     let response: PhotoObject
@@ -15,9 +16,9 @@ class PhotoObject: Decodable {
     let items: [Photo]
 }
 
-class Photo: Decodable {
-    var photoUrlString = ""
-    var sizeType = ""
+class Photo: Object, Decodable {
+    @Persisted var photoUrlString: String
+    @Persisted var sizeType: String
     
     enum CodingKeys: String, CodingKey {
         case sizes
@@ -28,11 +29,13 @@ class Photo: Decodable {
         case sizeType = "type"
     }
     
-    required init(from decoder: Decoder) throws {
+    convenience required init(from decoder: Decoder) throws {
+        self.init()
+        
         let photoContainer = try decoder.container(keyedBy: CodingKeys.self)
-        
+
         var sizesContainer = try photoContainer.nestedUnkeyedContainer(forKey: .sizes)
-        
+
         while !sizesContainer.isAtEnd {
             let sizesValues = try sizesContainer.nestedContainer(keyedBy: SizesKeys.self)
             let sizeType = try sizesValues.decode(String.self, forKey: .sizeType)

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class GroupResponse: Decodable {
     let response: GroupObject
@@ -15,9 +16,9 @@ class GroupObject: Decodable {
     let items: [Group]
 }
 
-class Group: Decodable {
-    let name: String
-    let groupsAvatarUrlString: String
+class Group: Object, Decodable {
+    @Persisted var name: String
+    @Persisted var groupsAvatarUrlString: String
     
     enum CodingKeys: String, CodingKey {
         case name
