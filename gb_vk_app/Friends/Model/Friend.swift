@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FriendResponse: Decodable {
     let response: FriendObject
@@ -16,11 +17,11 @@ class FriendObject: Decodable {
     let items: [Friend]
 }
 
-class Friend: Decodable {
-    let id: Int
-    let firstName: String
-    let lastName: String
-    let friendAvatarUrlString: String
+class Friend: Object, Decodable {
+    @Persisted var id: Int
+    @Persisted var firstName: String
+    @Persisted var lastName: String
+    @Persisted var friendAvatarUrlString: String
     
     enum CodingKeys: String, CodingKey {
         case id
