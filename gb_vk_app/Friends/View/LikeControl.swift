@@ -11,6 +11,8 @@ class LikeControl: UIControl {
     
     var count: Int = 0
 
+    // MARK: - Outlets
+    
     @IBOutlet var likeCountLabel: UILabel!
     @IBOutlet var likeImageView: UIImageView!
     
@@ -34,7 +36,7 @@ class LikeControl: UIControl {
         }
     }
     
-    // MARK: - Private
+    // MARK: - Private functions
     
     private func setupGestureRecognizer() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
@@ -49,9 +51,10 @@ class LikeControl: UIControl {
         sendActions(for: .valueChanged)
     }
     
-    // MARK: - Public
+    // MARK: - Public functions
     
-    public func configure(likes count: Int, isLikedByUser: Bool) {
+    /// Конфигурирование количества лайков и состояния лайка текущего пользователя - на данный момент используются рандомные значения
+    func configure(likes count: Int, isLikedByUser: Bool) {
         self.count = count
         self.isLiked = isLikedByUser
     }

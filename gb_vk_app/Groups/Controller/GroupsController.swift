@@ -7,46 +7,29 @@
 
 import UIKit
 
+/// Контроллер для отображения списка групп текущего пользователя
 class GroupsController: UITableViewController {
     
-    let networkService = NetworkService()
-    let token = Session.instance.accessToken
-    
-    fileprivate var groups = [
-        Group(name: "Российская Премьер-Лига", avatar: UIImage(named: "rpl")),
-        Group(name: "Лига Европы", avatar: UIImage(named: "uel"))
-    ]
+    var groups = [Group]()
+    let networkService = NetworkService(token: Session.instance.accessToken)
     
     fileprivate lazy var filteredGroups = self.groups
     
-    // MARK: - System function
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkService.loadGroups(token: token)
+        networkService.loadGroups { [weak self] groups in
+            self?.groups = groups
+            self?.filteredGroups = groups
+            self?.tableView.reloadData()
+        }
     }
     
     // MARK: - Add groups
     
-    
     @IBOutlet weak var searchBar: UISearchBar! { didSet { searchBar.delegate = self } }
-    @IBAction func addGroup(segue: UIStoryboardSegue) {
-        if segue.identifier == "addGroup" {
-            guard let newGroupsVC = segue.source as? NewGroupsController,
-                  let indexPath = newGroupsVC.tableView.indexPathForSelectedRow else { return }
-            
-            let newGroup = newGroupsVC.groups[indexPath.row]
-            
-            guard !groups.contains(where: { group -> Bool in
-                group.name == newGroup.name
-            }) else { return }
-            
-            groups.append(newGroup)
-            filterGroups(with: searchBar.text ?? "")
-            tableView.reloadData()
-        }
-    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -62,19 +45,13 @@ class GroupsController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: GroupCell.reuseId, for: indexPath) as! GroupCell
         let group = filteredGroups[indexPath.row]
         
-        cell.groupNameLabel.text = group.name
-        if group.avatar == nil {
-            cell.groupAvatarView.image = UIImage(named: "horse")
-        } else {
-            cell.groupAvatarView.image = group.avatar
-        }
+        cell.configureGroupCell(with: group)
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-//            groups.remove(at: indexPath.row)
             let groupToDelete = filteredGroups[indexPath.row]
             filteredGroups.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
