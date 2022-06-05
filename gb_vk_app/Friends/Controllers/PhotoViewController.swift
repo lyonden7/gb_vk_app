@@ -45,8 +45,6 @@ class PhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        title = "\(selectedPhotoIndex + 1) из \(photos.count)"
 
         guard !photos.isEmpty else { return }
         bigPhotoImageView.kf.setImage(with: URL(string: photos[selectedPhotoIndex].photoUrlString))

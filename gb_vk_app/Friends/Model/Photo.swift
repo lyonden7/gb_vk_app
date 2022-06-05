@@ -17,10 +17,14 @@ class PhotoObject: Decodable {
 }
 
 class Photo: Object, Decodable {
+    @Persisted var id: Int
+    @Persisted var ownerId: Int
     @Persisted var photoUrlString: String
     @Persisted var sizeType: String
     
     enum CodingKeys: String, CodingKey {
+        case id
+        case ownerId = "owner_id"
         case sizes
     }
     
@@ -33,6 +37,9 @@ class Photo: Object, Decodable {
         self.init()
         
         let photoContainer = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.id = try photoContainer.decode(Int.self, forKey: .id)
+        self.ownerId = try photoContainer.decode(Int.self, forKey: .ownerId)
 
         var sizesContainer = try photoContainer.nestedUnkeyedContainer(forKey: .sizes)
 

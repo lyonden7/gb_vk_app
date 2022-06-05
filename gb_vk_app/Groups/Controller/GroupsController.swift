@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 /// Контроллер для отображения списка групп текущего пользователя
 class GroupsController: UITableViewController {
+    
+    // MARK: - Properties
     
     var groups = [Group]()
     let networkService = NetworkService(token: Session.instance.accessToken)
@@ -20,10 +23,12 @@ class GroupsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkService.loadGroups { [weak self] groups in
-            self?.groups = groups
-            self?.filteredGroups = groups
-            self?.tableView.reloadData()
+        // как только загружается экран - загружаем данные из Realm
+        loadGroupsDataFromRealm()
+        
+        // далее делаем запрос на бэк и загружаем новые актуальные данные из Realm
+        networkService.loadGroups { [weak self] in
+            self?.loadGroupsDataFromRealm()
         }
     }
     
@@ -61,7 +66,22 @@ class GroupsController: UITableViewController {
             }
         }
     }
-
+    
+    // MARK: - Functions
+    
+    /// Получение групп текущего пользователя из базы Realm
+    func loadGroupsDataFromRealm() {
+        do {
+            let realm = try Realm()
+            let groups = realm.objects(Group.self)
+            self.groups = Array(groups)
+            self.filteredGroups = Array(groups)
+            self.tableView.reloadData()
+        } catch {
+            print(error)
+        }
+    }
+    
 }
 
 // MARK: - UISearchBarDelegate

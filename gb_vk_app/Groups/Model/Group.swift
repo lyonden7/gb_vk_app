@@ -17,10 +17,12 @@ class GroupObject: Decodable {
 }
 
 class Group: Object, Decodable {
+    @Persisted(primaryKey: true) var id: Int
     @Persisted var name: String
     @Persisted var groupsAvatarUrlString: String
     
     enum CodingKeys: String, CodingKey {
+        case id
         case name
         case groupsAvatarUrlString = "photo_50"
     }

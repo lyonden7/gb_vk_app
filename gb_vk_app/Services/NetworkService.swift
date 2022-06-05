@@ -16,6 +16,8 @@ class NetworkService {
         return session
     }()
     
+    let realmService = RealmService()
+    
     let baseURL = "https://api.vk.com/method/"
     let versionAPI = "5.131"
     private let token: String
@@ -26,8 +28,8 @@ class NetworkService {
     
     // MARK: - Functions
     
-    /// Получение списка друзей
-    func loadFriends(completion: @escaping ([Friend]) -> Void) {
+    /// Получение списка друзей от VK API с последующим сохранением в Realm
+    func loadFriends(completion: @escaping () -> Void) {
         let path = "friends.get"
         let url = baseURL + path
         let parameters: Parameters = [
@@ -39,13 +41,14 @@ class NetworkService {
         
         NetworkService.session.request(url, parameters: parameters).responseData { response in
             guard let data = response.value else { return }
-            let friend = try! JSONDecoder().decode(FriendResponse.self, from: data).response
-            completion(friend.items)
+            let friend = try! JSONDecoder().decode(FriendResponse.self, from: data).response.items
+            self.realmService.saveFriendsData(friend)
+            completion()
         }
     }
     
-    /// Получение фотографий человека
-    func loadFriendPhoto(ownerId: Int, completion: @escaping ([Photo]) -> Void) {
+    /// Получение фотографий пользователя/друга от VK API с последующим сохранением в Realm
+    func loadFriendPhoto(ownerId: Int, completion: @escaping () -> Void) {
         let path = "photos.getAll"
         let url = baseURL + path
         let parameters: Parameters = [
@@ -58,13 +61,14 @@ class NetworkService {
         
         NetworkService.session.request(url, parameters: parameters).responseData { response in
             guard let data = response.value else { return }
-            let photo = try! JSONDecoder().decode(PhotoResponse.self, from: data).response
-            completion(photo.items)
+            let photo = try! JSONDecoder().decode(PhotoResponse.self, from: data).response.items
+            self.realmService.saveFriendPhotosData(photo, ownerId: ownerId)
+            completion()
         }
     }
     
-    /// Получение групп текущего пользователя
-    func loadGroups(completion: @escaping ([Group]) -> Void) {
+    /// Получение групп текущего пользователя от VK API с последующим сохранением в Realm
+    func loadGroups(completion: @escaping () -> Void) {
         let path = "groups.get"
         let url = baseURL + path
         let parameters: Parameters = [
@@ -75,12 +79,13 @@ class NetworkService {
         
         NetworkService.session.request(url, parameters: parameters).responseData { response in
             guard let data = response.value else { return }
-            let group = try! JSONDecoder().decode(GroupResponse.self, from: data).response
-            completion(group.items)
+            let group = try! JSONDecoder().decode(GroupResponse.self, from: data).response.items
+            self.realmService.saveGroupsData(group)
+            completion()
         }
     }
     
-    /// Получение групп по поисковому запросу
+    /// Получение групп по поисковому запросу от VK API
     func loadSearchGroups(for searchText: String, completion: @escaping ([Group]) -> Void) {
         let path = "groups.search"
         let url = baseURL + path

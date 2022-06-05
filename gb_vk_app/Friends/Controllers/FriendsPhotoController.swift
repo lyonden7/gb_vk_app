@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 /// Контроллер для отображения фотографий выбранного друга
 class FriendsPhotoController: UICollectionViewController {
@@ -24,9 +25,12 @@ class FriendsPhotoController: UICollectionViewController {
         assert(friend != nil)
         title = "\(friend.firstName) \(friend.lastName)"
         
-        networkService.loadFriendPhoto(ownerId: ownerId) { [weak self] photo in
-            self?.photos = photo
-            self?.collectionView.reloadData()
+        // как только загружается экран - загружаем данные из Realm
+        loadFriendPhotosDataFromRealm(ownerId: ownerId)
+        
+        // далее делаем запрос на бэк и загружаем новые актуальные данные из Realm
+        networkService.loadFriendPhoto(ownerId: ownerId) { [weak self] in
+            self?.loadFriendPhotosDataFromRealm(ownerId: self!.ownerId)
         }
     }
 
@@ -47,12 +51,25 @@ class FriendsPhotoController: UICollectionViewController {
     
         return cell
     }
+    
+    // MARK: - Functions
+    
+    ///  Получение фотографий пользователя/друзей из Realm
+    func loadFriendPhotosDataFromRealm(ownerId: Int) {
+        do {
+            let realm = try Realm()
+            let filter = "ownerId == " + String(ownerId)
+            let photos = realm.objects(Photo.self).filter(filter)
+            self.photos = Array(photos)
+            self.collectionView.reloadData()
+        } catch {
+            print(error)
+        }
+    }
 }
 
 extension FriendsPhotoController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         let cellWidth = (collectionView.frame.width / 3).rounded(.down)
         
         return CGSize(width: cellWidth, height: cellWidth)
@@ -69,7 +86,6 @@ extension FriendsPhotoController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-    
 }
 
 extension FriendsPhotoController {
