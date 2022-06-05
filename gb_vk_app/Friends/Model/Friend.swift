@@ -18,7 +18,7 @@ class FriendObject: Decodable {
 }
 
 class Friend: Object, Decodable {
-    @Persisted var id: Int
+    @Persisted(primaryKey: true) var id: Int
     @Persisted var firstName: String
     @Persisted var lastName: String
     @Persisted var friendAvatarUrlString: String
@@ -30,3 +30,10 @@ class Friend: Object, Decodable {
         case friendAvatarUrlString = "photo_50"
     }
 }
+
+
+
+// TO DO :
+// У пользователей есть фото – это тоже связанные записи.
+// Сделать массив фото связанным с пользователем
+// (в таблице с друзьями еще один столбец с массивом фото (как в примере в методичке с питомцами)
