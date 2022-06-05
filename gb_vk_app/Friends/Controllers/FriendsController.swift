@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 /// Контроллер для отображения списка друзей
 class FriendsController: UITableViewController {
+    
+    // MARK: - Properties
     
     var friends = [Friend]()
     let networkService = NetworkService(token: Session.instance.accessToken)
@@ -18,9 +21,12 @@ class FriendsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkService.loadFriends { [weak self] friend in
-            self?.friends = friend
-            self?.tableView.reloadData()
+        // как только загружается экран - загружаем данные из Realm
+        loadFriendsDataFromRealm()
+        
+        // далее делаем запрос на бэк и загружаем новые актуальные данные из Realm
+        networkService.loadFriends { [weak self] in
+            self?.loadFriendsDataFromRealm()
         }
     }
 
@@ -35,6 +41,20 @@ class FriendsController: UITableViewController {
         
         cell.configureFriendCell(with: friends[indexPath.row])
         return cell
+    }
+    
+    // MARK: - Functions
+    
+    /// Получение списка друзей из базы Realm
+    func loadFriendsDataFromRealm() {
+        do {
+            let realm = try Realm()
+            let friends = realm.objects(Friend.self)
+            self.friends = Array(friends)
+            self.tableView.reloadData()
+        } catch {
+            print(error)
+        }
     }
     
     // MARK: - Navigation
