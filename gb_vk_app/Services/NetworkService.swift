@@ -10,6 +10,9 @@ import Alamofire
 
 /// Запросы к VK API
 class NetworkService {
+    
+    // MARK: - Properties
+    
     static let session: Alamofire.Session = {
         let configuration = URLSessionConfiguration.default
         let session = Alamofire.Session(configuration: configuration)

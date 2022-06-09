@@ -10,7 +10,7 @@ import Kingfisher
 
 class GroupCell: UITableViewCell {
     
-    static let reuseId = "GroupCell"
+    // MARK: - Outlets
     
     @IBOutlet weak var groupAvatarView: UIImageView! {
         didSet {
@@ -19,6 +19,10 @@ class GroupCell: UITableViewCell {
         }
     }
     @IBOutlet weak var groupNameLabel: UILabel!
+    
+    // MARK: - Properties
+    
+    static let reuseId = "GroupCell"
     
     // MARK: - Lifecycle
 

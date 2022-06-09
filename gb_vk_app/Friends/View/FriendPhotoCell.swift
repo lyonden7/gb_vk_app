@@ -9,13 +9,15 @@ import UIKit
 import Kingfisher
 
 class FriendPhotoCell: UICollectionViewCell {
-    
-    static let reuseId = "FriendPhotoCell"
 
     // MARK: - Outlets
     
     @IBOutlet var photoView: UIImageView!
     @IBOutlet var likeControl: LikeControl!
+    
+    // MARK: - Properties
+    
+    static let reuseId = "FriendPhotoCell"
     
     // MARK: - Lifecycle
     

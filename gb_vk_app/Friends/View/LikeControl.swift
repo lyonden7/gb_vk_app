@@ -8,13 +8,13 @@
 import UIKit
 
 class LikeControl: UIControl {
-    
-    var count: Int = 0
 
     // MARK: - Outlets
     
     @IBOutlet var likeCountLabel: UILabel!
     @IBOutlet var likeImageView: UIImageView!
+    
+    // MARK: - Public properties
     
     public var isLiked: Bool = false {
         didSet {
@@ -35,6 +35,10 @@ class LikeControl: UIControl {
             }
         }
     }
+    
+    // MARK: - Properties
+    
+    var count: Int = 0
     
     // MARK: - Private functions
     
@@ -59,7 +63,7 @@ class LikeControl: UIControl {
         self.isLiked = isLikedByUser
     }
     
-    // MARK: - Animate
+    // MARK: - Animation
     
     func animationFlipFromLeft(_ label: UILabel, _ text: String) {
         UIView.transition(with: label,

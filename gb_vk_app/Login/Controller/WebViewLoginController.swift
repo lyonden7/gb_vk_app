@@ -11,11 +11,15 @@ import WebKit
 /// Форма входа для авторизации в VK
 class WebViewLoginController: UIViewController {
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var webView: WKWebView! {
         didSet {
             webView.navigationDelegate = self
         }
     }
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()

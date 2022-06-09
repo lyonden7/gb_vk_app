@@ -10,12 +10,14 @@ import Kingfisher
 
 class FriendCell: UITableViewCell {
     
-    static let reuseId = "FriendCell"
-    
     // MARK: - Outlets
     
     @IBOutlet weak var friendFullNameLabel: UILabel!
     @IBOutlet weak var avatarView: AvatarView!
+    
+    // MARK: - Properties
+    
+    static let reuseId = "FriendCell"
 
     // MARK: - Config cell
     

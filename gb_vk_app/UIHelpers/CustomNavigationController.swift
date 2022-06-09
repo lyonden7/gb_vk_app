@@ -14,7 +14,11 @@ class CustomInteractiveTransition: UIPercentDrivenInteractiveTransition {
 
 class CustomNavigationController: UINavigationController, UINavigationControllerDelegate {
     
+    // MARK: - Properties
+    
     let interactiveTransition = CustomInteractiveTransition()
+    
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +29,8 @@ class CustomNavigationController: UINavigationController, UINavigationController
         edgePanGR.edges = .left
         view.addGestureRecognizer(edgePanGR)
     }
+    
+    // MARK: - Functions
     
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         switch operation {
