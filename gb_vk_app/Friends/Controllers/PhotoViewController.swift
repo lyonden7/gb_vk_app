@@ -16,16 +16,22 @@ class PhotoViewController: UIViewController {
         case right
     }
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var bigPhotoImageView: UIImageView! {
         didSet {
             bigPhotoImageView.isUserInteractionEnabled = true
         }
     }
     
-    private let additionalImageView = UIImageView()
+    // MARK: - Public properties
     
     public var photos = [Photo]()
     public var selectedPhotoIndex: Int = 0
+    
+    // MARK: - Private properties
+    
+    private let additionalImageView = UIImageView()
     
     private var propertyAnimator: UIViewPropertyAnimator!
     private var animationDirection: AnimationDirection = .left

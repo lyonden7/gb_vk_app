@@ -8,10 +8,14 @@
 import UIKit
 
 class LoadingIndicator: UIView {
+    
+    // MARK: - Outlets
 
     @IBOutlet weak var leftLoadingItemView: UIView?
     @IBOutlet weak var centerLoadingItemView: UIView?
     @IBOutlet weak var rightLoadingItemView: UIView?
+    
+    // MARK: - Lifecycle
 
     override func layoutSubviews() {
         super.layoutSubviews()

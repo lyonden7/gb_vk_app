@@ -10,6 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
     // MARK: - Outlets
+    
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -20,6 +21,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loadingIndicator: LoadingIndicator!
     
     // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,6 +51,7 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: - IBAction
+    
     @IBAction func loginButtonPressed(_ sender: Any) {
         guard let login = loginTextField.text,
               let password = passwordTextField.text,
@@ -64,6 +67,7 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: - Keyboard
+    
     @objc func keyboardWasShown(notification: Notification) {
         let info = notification.userInfo! as NSDictionary
         let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size

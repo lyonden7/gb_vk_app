@@ -14,6 +14,8 @@ class AvatarView: UIView {
     
     @IBOutlet weak var imageAvatarView: UIImageView!
     @IBOutlet weak var shadowView: UIView!
+    
+    // MARK: - Properties
 
     @IBInspectable var shadowColor: UIColor = .black { didSet { setNeedsDisplay() } }
     @IBInspectable var shadowRadius: CGFloat = 8 { didSet { setNeedsDisplay() } }

@@ -9,7 +9,11 @@ import UIKit
 
 class NewsfeedController: UIViewController {
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()

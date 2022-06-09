@@ -11,6 +11,8 @@ import RealmSwift
 /// Методы для сохранения данных в Realm
 class RealmService {
     
+    // MARK: - Functions
+    
     /// Сохранение списка друзей в Realm
     func saveFriendsData(_ friends: [Friend]) {
         do {

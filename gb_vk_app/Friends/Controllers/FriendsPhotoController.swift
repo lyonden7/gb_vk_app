@@ -10,6 +10,8 @@ import RealmSwift
 
 /// Контроллер для отображения фотографий выбранного друга
 class FriendsPhotoController: UICollectionViewController {
+    
+    // MARK: - Properties
 
     let networkService = NetworkService(token: Session.instance.accessToken)
     

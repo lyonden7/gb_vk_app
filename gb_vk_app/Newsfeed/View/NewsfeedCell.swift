@@ -9,7 +9,7 @@ import UIKit
 
 class NewsfeedCell: UITableViewCell {
     
-    static let reuseId = "NewsfeedCell"
+    // MARK: - Outlets
     
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -20,16 +20,19 @@ class NewsfeedCell: UITableViewCell {
     @IBOutlet weak var commentsLabel: UILabel!
     @IBOutlet weak var sharesLabel: UILabel!
     @IBOutlet weak var viewsLabel: UILabel!
+    
+    // MARK: - Properties
 
+    static let reuseId = "NewsfeedCell"
+    
+    // MARK: - Lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
     
 }
